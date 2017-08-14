@@ -89,8 +89,8 @@
 		</div>
 
 		<div class="wins-losses">
-			<h2 id="winsCounter"></h2>
-			<h2 id="lossCounter"></h2>
+			<h2 id="win"></h2>
+			<h2 id="loss"></h2>
 		</div>
 
 		<div class="crystals" style="float: left; padding: 0; margin: 0;">
@@ -112,22 +112,22 @@
 	$(document).ready(function() {
 	
 		//Variables
-		var compNumber = Math.floor(Math.random() * 101 + 19);
-		$("#compNumber").text(compNumber);
+		var compNumber;
 		var winsCounter = 0;
 		var lossCounter = 0;
-		var crystal1no = Math.floor(Math.random() * 11 + 1);
-		var crystal2no = Math.floor(Math.random() * 11 + 1);
-		var crystal3no = Math.floor(Math.random() * 11 + 1);
-		var crystal4no = Math.floor(Math.random() * 11 + 1);
+		var crystal1no;
+		var crystal2no;
+		var crystal3no;
+		var crystal4no;
 		var score = 0;
 		var counter = 0;
-		$("#score").append("Score: " + score);
-		console.log("Score: " + score);
-		$("#winsCounter").append("wins: " + winsCounter);
+		
+		$("#win").append("wins: " + winsCounter);
 		console.log("wins: " + winsCounter);
-		$("#lossCounter").append("losses: " + lossCounter);
+		$("#loss").append("losses: " + lossCounter);
 		console.log("losses: " + lossCounter);
+
+		restartGame();
 		// $("#counter").append("Counter: " + counter);
 		// console.log("counter: " + counter);
 
@@ -145,24 +145,38 @@
 		// restartGame();
 		// }
 
-		// function restartGame() {
+			function restartGame() {
+				console.log("hit restart")
+				score = 0;
+				$("#score").text("Score: " + score);
+				compNumber = Math.floor(Math.random() * 101 + 19);
+				$("#compNumber").text(compNumber);
+
+				// for(var i = 1; i < 5; i++) {
+				// 	crystal
+				// }
+				crystal1no = Math.floor(Math.random() * 11 + 1);
+				crystal2no = Math.floor(Math.random() * 11 + 1);
+				crystal3no = Math.floor(Math.random() * 11 + 1);
+				crystal4no = Math.floor(Math.random() * 11 + 1);
+			}
 
 			function WinLose () {
-			if (counter === compNumber) {
-				wins += 1;
+			if (score === compNumber) {
+				winsCounter++;
 				alert("Fuck yeah!");
-				return $(win).text(winsCounter)
-				} else if (counter > compNumber) {
+				restartGame();
+				return $("#wins").text("wins: " + winsCounter);
+				console.log("wins hit")
+				} else if (score > compNumber) {
 					alert("You suck again!");
-					return $(loss).text(losses);
+					lossCounter++;
+					restartGame();
+					return $("#loss").text("losses: " + lossCounter);
+					console.log("loss hit")
 				}
 			}
 
-			var crystal1no = Math.floor(Math.random() * 11 + 1);
-			var crystal2no = Math.floor(Math.random() * 11 + 1);
-			var crystal3no = Math.floor(Math.random() * 11 + 1);
-			var crystal4no = Math.floor(Math.random() * 11 + 1);
-			var score = 0;
 
 			$(".crystal1").on("click", function() {
 				score += crystal1no;
