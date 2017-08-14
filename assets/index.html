@@ -40,6 +40,22 @@
     		padding: 0 20px;
     	}
 
+    	.crystal1 {
+    		margin: 0px;
+    	}
+
+    	.crystal2 {
+    		margin: 0px;
+    	}
+
+    	.crystal3 {
+    		margin: 0px;
+    	}
+
+    	.crystal4 {
+    		margin: 0px;
+    	}
+
     	.crystals {
     		float: left;
     		width: 860px;
@@ -78,16 +94,15 @@
 		</div>
 
 		<div class="crystals" style="float: left; padding: 0; margin: 0;">
-			<img id="crystal1" src="img/mind.jpg" alt="crystal-1" height="200" width="200">
-			<img id="crystal2" src="img/purple.jpg" alt="crystal-2" height="200" width="200">
-			<img id="crystal3" src="img/red.jpg" alt="crystal-3" height="200" width="200">
-			<img id="crystal4" src="img/skull.jpg" alt="crystal-4" height="200" width="200">
+			<img id="crystal1" class="crystal1" src="img/mind.jpg" alt="crystal-1" height="200" width="200">
+			<img id="crystal2" class="crystal2" src="img/purple.jpg" alt="crystal-2" height="200" width="200">
+			<img id="crystal3" class="crystal3" src="img/red.jpg" alt="crystal-3" height="200" width="200">
+			<img id="crystal4" class="crystal4" src="img/skull.jpg" alt="crystal-4" height="200" width="200">
 		</div>
 
 		<div class="score">
 			<h1 id="score"></h1>
-			<br>
-			<h1 id="counter"></h1>
+			
 		</div>
 
 	</div>
@@ -113,8 +128,8 @@
 		console.log("wins: " + winsCounter);
 		$("#lossCounter").append("losses: " + lossCounter);
 		console.log("losses: " + lossCounter);
-		$("#counter").append("Counter: " + counter);
-		console.log("counter: " + counter);
+		// $("#counter").append("Counter: " + counter);
+		// console.log("counter: " + counter);
 
 		// function win() {
 		// alert("You win!");
@@ -149,10 +164,32 @@
 			var crystal4no = Math.floor(Math.random() * 11 + 1);
 			var score = 0;
 
-			$("#crystal1").on("click", function() {
+			$(".crystal1").on("click", function() {
 				score += crystal1no;
 				WinLose();
-				$(score).text(score);
+				$("#score").text(score);
+				console.log("score 1: " + crystal1no);
+			});
+
+			$(".crystal2").on("click", function() {
+				score += crystal2no;
+				WinLose();
+				$("#score").text(score);
+				console.log("score 2: " + crystal2no);
+			});
+
+			$(".crystal3").on("click", function() {
+				score += crystal3no;
+				WinLose();
+				$("#score").text(score);
+				console.log("score 3: " + crystal3no);
+			});
+
+			$(".crystal4").on("click", function() {
+				score += crystal4no;
+				WinLose();
+				$("#score").text(score);
+				console.log("score 4: " + crystal4no);
 			});
 		 	
 
