@@ -127,6 +127,22 @@
 		$("#loss").append("losses: " + lossCounter);
 		console.log("losses: " + lossCounter);
 
+		function WinLose () {
+			if (score === compNumber) {
+				winsCounter++;
+				alert("Fuck yeah!");
+				restartGame();
+				return $("#wins").text("wins: " + winsCounter);
+				console.log("wins hit")
+				} else if (score > compNumber) {
+					alert("You suck again!");
+					lossCounter++;
+					restartGame();
+					return $("#loss").text("losses: " + lossCounter);
+					console.log("loss hit");
+				}
+			}
+
 		restartGame();
 		// $("#counter").append("Counter: " + counter);
 		// console.log("counter: " + counter);
@@ -161,21 +177,7 @@
 				crystal4no = Math.floor(Math.random() * 11 + 1);
 			}
 
-			function WinLose () {
-			if (score === compNumber) {
-				winsCounter++;
-				alert("Fuck yeah!");
-				restartGame();
-				return $("#wins").text("wins: " + winsCounter);
-				console.log("wins hit")
-				} else if (score > compNumber) {
-					alert("You suck again!");
-					lossCounter++;
-					restartGame();
-					return $("#loss").text("losses: " + lossCounter);
-					console.log("loss hit")
-				}
-			}
+			
 
 
 			$(".crystal1").on("click", function() {
