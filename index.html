@@ -122,23 +122,23 @@
 		var score = 0;
 		var counter = 0;
 		
-		$("#win").append("wins: " + winsCounter);
+		$("#win").append("Wins: " + winsCounter);
 		console.log("wins: " + winsCounter);
-		$("#loss").append("losses: " + lossCounter);
+		$("#loss").append("Losses: " + lossCounter);
 		console.log("losses: " + lossCounter);
 
 		function WinLose () {
-			if (score === compNumber) {
-				winsCounter++;
+			if (score == compNumber) {
 				alert("Fuck yeah!");
+				winsCounter++;
 				restartGame();
-				return $("#wins").text("wins: " + winsCounter);
+				return $("#wins").text("Wins: " + winsCounter);
 				console.log("wins hit")
 				} else if (score > compNumber) {
 					alert("You suck again!");
 					lossCounter++;
 					restartGame();
-					return $("#loss").text("losses: " + lossCounter);
+					return $("#loss").text("Losses: " + lossCounter);
 					console.log("loss hit");
 				}
 			}
